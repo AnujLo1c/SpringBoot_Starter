@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head"></head>
+<body>
+    <header th:replace="~{fragments/header :: header}"
+ >
+    </header>
+    <h2>Welcome to the Home Page</h2>
+    <p>This is a sample home page using Thymeleaf.</p>
+    <p>Feel free to customize it as per your requirements.</p>
+
+    <section class="about_section layout_padding">
+
+        <div class="container">
+            <div class="posts" th:each="post : ${posts}">
+                <div class="post">
+                    <h3 th:text="${post.title}">Post Title</h3>
+                    <p th:text="${post.content}">Post content goes here.</p>
+                </div>
+            </div>
+    </section>
+    <!-- Add more content here as needed -->
+   <footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

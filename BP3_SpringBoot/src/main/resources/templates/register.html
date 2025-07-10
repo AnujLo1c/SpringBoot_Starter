@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head :: head"></head>
+
+
+<body>
+ 
+
+
+    <!-- Page Header Start -->
+   <div th:replace="fragments/header :: header" ></div>
+    <!-- Page Header End -->
+
+    <div>
+        <div>
+            <div>
+
+                <form action="#" th:action="@{/register}" method="post" th:object="${account}">
+
+                    <div>
+                        <input type="text" id="username" th:field="*{username}" placeholder="Name">
+                    </div>
+                    <div>
+                        <input type="text" id="email" th:field="*{email}" placeholder="Email">
+                    </div>
+                
+                <div>
+                        <input type="text" id="password" th:field="*{password}" placeholder="Password">
+                    </div>
+
+        <button type="submit">
+            Register
+        </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
