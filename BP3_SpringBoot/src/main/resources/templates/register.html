@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:replace="fragments/head :: head"></head>
+<head th:replace="~{fragments/head:: head}"></head>
 
 
 <body>
@@ -8,7 +8,7 @@
 
 
     <!-- Page Header Start -->
-   <div th:replace="fragments/header :: header" ></div>
+   <div th:replace="~{fragments/header :: header}" ></div>
     <!-- Page Header End -->
 
     <div>
@@ -45,7 +45,7 @@
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
- <footer th:replace="fragments/footer :: footer"></footer>
+ <footer th:replace="~{fragments/footer :: footer}"></footer>
     <script src="js/main.js"></script>
 </body>
 

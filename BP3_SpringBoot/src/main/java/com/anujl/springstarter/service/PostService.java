@@ -2,6 +2,7 @@ package com.anujl.springstarter.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,9 +15,9 @@ public class PostService {
 
     @Autowired
     PostRepository postRepository;
-    public Post getById(Long id) {
+    public Optional<Post> findById(Long id) {
         
-        return postRepository.getReferenceById(id); 
+        return postRepository.findById(id); 
     }
     public List<Post> getAllPosts() {
        
@@ -35,4 +36,7 @@ public class PostService {
             
             postRepository.deleteById(id);
 }
+       public void update_post(Post post) {
+        postRepository.save(post);
+       }
 }

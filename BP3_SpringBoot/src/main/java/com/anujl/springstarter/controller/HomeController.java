@@ -30,12 +30,7 @@ List<Post> post = postService.getAllPosts();
     }
    
     
-    @GetMapping("/login")
-    public String login(Model model) {
-// List<Post> post = postService.getAllPosts();
-//         model.addAttribute("posts", post);
-        return new String("login");
-    }
+
    
     
 }

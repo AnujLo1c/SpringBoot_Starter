@@ -1,4 +1,5 @@
 package com.anujl.springstarter.controller;
+
 import com.anujl.springstarter.service.AccountService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +11,6 @@ import com.anujl.springstarter.models.Account;
 import org.springframework.web.bind.annotation.PostMapping;
 // import org.springframework.web.bind.annotation.RequestBody;
 
-
 @Controller
 public class AccountController {
 
@@ -19,19 +19,25 @@ public class AccountController {
     AccountController(AccountService accountService) {
         this.accountService = accountService;
     }
-    
-     @GetMapping("/register")
+
+    @GetMapping("/register")
     public String register(Model model) {
-        Account account=new Account();
+        Account account = new Account();
         model.addAttribute("account", account);
         return "register";
     }
+
     @PostMapping("/register")
     public String postMethodName(@ModelAttribute Account account) {
-        //TODO: process POST request
+        // TODO: process POST request
         accountService.saveAccount(account);
         return "redirect:/home";
     }
-    
-    
+
+    @GetMapping("/login")
+    public String login(Model model) {
+      
+        return new String("login");
+    }
+
 }

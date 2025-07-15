@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+>
+  <head th:replace="~{fragments/head :: head}"></head>
+ 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+></script>
+
+  <body>
+    <header th:replace="~{fragments/header :: header}"></header>
+
+
+
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">...</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+           
+            <form th:action="@{'/post/' + ${post.id} + '/delete'}" method="post">
+  <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2 class="text-center mt-5 pt-5">Post Page</h2>
+    <!-- Add more content here as needed -->
+
+    <div class="post">
+        <h3 th:text="${post.id}">ID</h3>
+
+      <h2>
+        <a
+          th:href="@{'/post/' + ${post.id}}"
+          th:text="${post.title}"
+          th:value="${post.title}"
+          >Title</a
+        >
+      </h2>
+      <!--  -->
+      <p
+        th:text="'Author : '+${post.account.firstName}+' | Created At: '+${post.createdAt}"
+      ></p>
+      <p th:text="${post.content}" th:value="${post.content}">
+        Post content goes here.
+      </p>
+      <!-- <input type="hidden" name="postId" th:value="${post.id}"/> -->
+      <!-- <input type="hidden" name="poststring" th:value="${post.toString()}"/> -->
+
+      <button class="btn btn-primary" th:if="${isAuthor}">
+        <a
+          th:href="@{'/post/'+${post.id}+'/edit_post'}"
+          class="text-white"
+          
+          >Edit</a
+        >
+      </button>
+      <!-- Button trigger modal -->
+     <button
+  type="button"
+  class="btn btn-danger"
+  th:if="${isAuthor}"
+  data-toggle="modal"
+  data-target="#exampleModal"
+>
+  Delete
+</button>
+
+    </div>
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+  </body>
+</html>
