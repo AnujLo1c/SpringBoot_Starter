@@ -1,4 +1,4 @@
-package com.anujl.springstarter.security;
+package com.anujl.blacknwhite.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,8 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.anujl.springstarter.util.constants.Privilages;
-// import com.anujl.springstarter.util.constants.Roles;
+import com.anujl.blacknwhite.util.constants.Privilages;
 
 @Configuration
 @EnableWebSecurity
@@ -21,9 +20,14 @@ public class WebSecurityCongfig {
         "/home",
         "/register",
         "/login",
+        "/forget",
+"/forget_pass",
+"/forgot-password",
+"/new-password",
         "/h2-console/**",
         "/css/**",
         "/js/**"
+
     };
 
     @Bean

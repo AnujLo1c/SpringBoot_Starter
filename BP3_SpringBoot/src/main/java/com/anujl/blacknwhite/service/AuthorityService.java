@@ -1,12 +1,12 @@
-package com.anujl.springstarter.service;
+package com.anujl.blacknwhite.service;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.anujl.springstarter.models.Authority;
-import com.anujl.springstarter.repository.AuthorityRepository;
+import com.anujl.blacknwhite.models.Authority;
+import com.anujl.blacknwhite.repository.AuthorityRepository;
 
 @Service
 public class AuthorityService {

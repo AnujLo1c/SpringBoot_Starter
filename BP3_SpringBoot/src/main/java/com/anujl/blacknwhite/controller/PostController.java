@@ -1,4 +1,4 @@
-package com.anujl.springstarter.controller;
+package com.anujl.blacknwhite.controller;
 
 import java.security.Principal;
 import java.util.Optional;
@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import com.anujl.springstarter.models.Account;
-import com.anujl.springstarter.models.Post;
-import com.anujl.springstarter.service.AccountService;
-import com.anujl.springstarter.service.PostService;
+
+import com.anujl.blacknwhite.models.Account;
+import com.anujl.blacknwhite.models.Post;
+import com.anujl.blacknwhite.service.AccountService;
+import com.anujl.blacknwhite.service.PostService;
 
 
 

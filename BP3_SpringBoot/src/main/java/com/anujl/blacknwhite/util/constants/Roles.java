@@ -1,4 +1,4 @@
-package com.anujl.springstarter.util.constants;
+package com.anujl.blacknwhite.util.constants;
 
 public enum Roles {
     USER("ROLE_USER"),

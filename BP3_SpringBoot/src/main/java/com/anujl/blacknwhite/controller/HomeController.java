@@ -1,4 +1,4 @@
-package com.anujl.springstarter.controller;
+package com.anujl.blacknwhite.controller;
 
 
 import java.util.List;
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.anujl.springstarter.models.Post;
-import com.anujl.springstarter.service.PostService;
+import com.anujl.blacknwhite.models.Post;
+import com.anujl.blacknwhite.service.PostService;
 
 
 

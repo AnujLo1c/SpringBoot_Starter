@@ -1,4 +1,4 @@
-package com.anujl.springstarter.service;
+package com.anujl.blacknwhite.service;
 
 import java.util.ArrayList;
 
@@ -11,10 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.anujl.springstarter.models.Account;
-import com.anujl.springstarter.models.Authority;
-import com.anujl.springstarter.repository.AccountRepository;
-
+import com.anujl.blacknwhite.models.Account;
+import com.anujl.blacknwhite.models.Authority;
+import com.anujl.blacknwhite.repository.AccountRepository;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -53,4 +52,10 @@ private PasswordEncoder passwordEncoder;
     public Account getCurrentAccount(String email) {
         return accountRepository.findByEmail(email);
     }
+
+    public Account getCurrentAccountByToken(String token) {
+     return accountRepository.findByToken(token);
+    }
+
+   
 }

@@ -1,8 +1,13 @@
-package com.anujl.springstarter.models;
+package com.anujl.blacknwhite.models;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,6 +18,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,8 +35,31 @@ public class Account {
     private String firstName;
     private String lastName;
     private String password;
+
+   
+     private String username;
+     @Email(message = "Email should be valid")
+     @NotEmpty(message = "Email cannot be empty")
     private String email;
      private String role;
+     @NotEmpty(message = "Phone number cannot be empty")
+     private String phoneNumber;
+        @NotEmpty(message = "Address cannot be empty")
+        private String address;
+
+private String gender;
+
+@DateTimeFormat(pattern = "yyyy-MM-dd")
+    
+private LocalDate dateOfBirth;
+
+private String profilePictureUrl;
+private String token;
+
+@DateTimeFormat(pattern = "HH:mm:ss")
+   
+private LocalTime tokenExpiryTime;
+
     @OneToMany(mappedBy = "account")
     private List<Post> posts;
 

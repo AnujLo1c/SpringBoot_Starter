@@ -5,6 +5,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
 <head th:replace="~{fragments/head:: head}"></head>
 <body>
       <div th:replace="~{fragments/header :: header}" ></div>
+      <p th:if="${success}" th:text="${success}" style="color: red;"></p>
     <h2>Login</h2>
     <form th:action="@{/login}" method="post">
         <div>
@@ -15,6 +16,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required />
         </div>
+        <a th:href="@{/forget_pass}" class="btn-link" >Forget Password</a>
         <div>
             <button type="submit">Login</button>
         </div>

@@ -1,4 +1,4 @@
-package com.anujl.springstarter.models;
+package com.anujl.blacknwhite.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

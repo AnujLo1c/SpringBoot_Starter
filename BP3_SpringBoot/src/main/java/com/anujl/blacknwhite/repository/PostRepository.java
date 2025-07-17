@@ -1,8 +1,8 @@
-package com.anujl.springstarter.repository;
+package com.anujl.blacknwhite.repository;
 
 import org.springframework.stereotype.Repository;
 
-import com.anujl.springstarter.models.Post;
+import com.anujl.blacknwhite.models.Post;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

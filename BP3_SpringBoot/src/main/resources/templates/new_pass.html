@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm password</title>
+</head>
+<head th:replace="~{fragments/head:: head}"></head>
+<body>
+      <div th:replace="~{fragments/header :: header}" ></div>
+      <p th:if="${error}" th:text="${error}" style="color: red;"></p>
+    <h2>Confirm Your password</h2>
+    <form th:action="@{/new-password}" method="post">
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+<input type="hidden" name="param" id="param" th:value="${token}">
+        <label for="confirmPassword">Confirm password:</label><br>
+        <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+     <footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

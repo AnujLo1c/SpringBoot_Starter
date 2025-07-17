@@ -1,4 +1,4 @@
-package com.anujl.springstarter.models;
+package com.anujl.blacknwhite.models;
 
 import java.time.LocalDateTime;
 

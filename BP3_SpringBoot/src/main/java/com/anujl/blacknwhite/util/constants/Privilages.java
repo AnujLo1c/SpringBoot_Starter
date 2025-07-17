@@ -1,4 +1,4 @@
-package com.anujl.springstarter.util.constants;
+package com.anujl.blacknwhite.util.constants;
 
 public enum Privilages {
     RESET_ANY_USER_PASSWORD(1,"RESET_ANY_USER_PASSWORD"),

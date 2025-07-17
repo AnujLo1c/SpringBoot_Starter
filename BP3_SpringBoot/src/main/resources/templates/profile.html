@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
-<head th:replace="~{fragments/head:: head}"></head>
+<head th:replace="~{fragments/head::head}"></head>
 <body>
-    <header th:replace="~{fragments/header :: header}">
-    </header>
-    <h2 class="text-center mt-5 pt-5">Profile Page</h2>
-    <!-- Add more content here as needed -->
-   <footer th:replace="~{fragments/footer :: footer}"></footer>
+<header th:replace="~{fragments/header::header}"></header>
+
+<div class="container mt-5 pt-5">
+    <h2 class="text-center">Profile Page</h2>
+    <div class="card mt-4">
+        <div class="card-body" th:object="${account}">
+            <p><strong>First Name:</strong> <span th:text="*{firstName}">First Name</span></p>
+            <p><strong>Last Name:</strong> <span th:text="*{lastName}">Last Name</span></p>
+            <p><strong>Username:</strong> <span th:text="*{username}">Username</span></p>
+            <p><strong>Email:</strong> <span th:text="*{email}">Email</span></p>
+            <p><strong>Phone Number:</strong> <span th:text="*{phoneNumber}">Phone</span></p>
+            <p><strong>Address:</strong> <span th:text="*{address}">Address</span></p>
+            <p><strong>Gender:</strong> <span th:text="*{gender}">Gender</span></p>
+            <p><strong>Date of Birth:</strong> <span th:text="*{dateOfBirth}">DOB</span></p>
+            <p><strong>Role:</strong> <span th:text="*{role}">Role</span></p>
+          
+
+<form th:action="@{/profile/edit_profile}" method="post">
+    <button type="submit">Edit</button>
+</form>
+
+           
+        </div>
+    </div>
+</div>
+
+<footer th:replace="~{fragments/footer::footer}"></footer>
 </body>
 </html>
