@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<div th:fragment="header">
+
+<!-- <div th:fragment="header"> -->
   <!-- Spinner Start -->
   <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status"></div>
@@ -7,7 +7,7 @@
   <!-- Spinner End -->
 
   <!-- Navbar Start -->
-  <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
+  <!-- <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
     <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
       <div class="col-lg-6 px-5 text-start">
         <small
@@ -89,4 +89,67 @@
       </div>
     </nav>
   </div>
-</div>
+</div> -->
+
+
+
+<div class="container" th:fragment="header">	
+			<header>
+				<div class="row">
+          <br>
+					<div class="col-md-4 col-sm-5 col-xs-8">
+						<div class="logo">
+							<h1><a href="index.html"><b>Black</b> &amp; White</a></h1>
+						</div>
+					</div>
+					<div class="col-md-8 col-sm-7 col-xs-4">
+						<nav class="main-nav" role="navigation">
+							<div class="navbar-header">
+  								<button type="button" id="trigger-overlay" class="navbar-toggle">
+    								<span class="ion-navicon"></span>
+  								</button>
+							</div>
+
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  								<ul class="nav navbar-nav navbar-right">
+    								<li>
+              <a href="/home" class="nav-item nav-link active">Home</a>
+            </li>
+            <li sec:authorize="!isAuthenticated()">
+              <a href="/register" class="nav-item nav-link">Register</a>
+            </li>
+            <li sec:authorize="!isAuthenticated()">
+              <a href="/login" class="nav-item nav-link">Login</a>
+            </li>
+
+            <li sec:authorize="isAuthenticated()">
+              <a href="/profile" class="nav-item nav-link">Profile</a>
+            </li>
+             <li sec:authorize="isAuthenticated()">
+              <a href="/post/add_post" class="nav-item nav-link">Add Post</a>
+            </li>
+            <li sec:authorize="isAuthenticated()">
+              <a href="/logout" class="nav-item nav-link">Log Out</a>
+            </li>
+            <li sec:authorize="hasAuthority('ACCESS_ADMIN_DASHBOARD')">
+              <a href="/admin" class="nav-item nav-link">Admin </a>
+            </li>
+    <!-- <li sec:authorize="hasAnyRole('EDITOR', 'ADMIN')">
+              <a href="/editor" class="nav-item nav-link">Editor </a>
+            </li> -->
+  								</ul>
+							</div>
+						</nav>
+						<div id="header-search-box">
+							<a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+							<div id="search-form" class="search-form">
+								<form role="search" method="get" id="searchform" action="#">
+									<input type="search" placeholder="Search" required>
+									<button type="submit"><span class="ion-ios-search-strong"></span></button>
+								</form>				
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+		</div>

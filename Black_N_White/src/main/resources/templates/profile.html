@@ -4,26 +4,73 @@
 <body>
 <header th:replace="~{fragments/header::header}"></header>
 
-<div class="container mt-5 pt-5">
-    <h2 class="text-center">Profile Page</h2>
-    <div class="card mt-4">
-        <div class="card-body" th:object="${account}">
-            <p><strong>First Name:</strong> <span th:text="*{firstName}">First Name</span></p>
-            <p><strong>Last Name:</strong> <span th:text="*{lastName}">Last Name</span></p>
-            <p><strong>Username:</strong> <span th:text="*{username}">Username</span></p>
-            <p><strong>Email:</strong> <span th:text="*{email}">Email</span></p>
-            <p><strong>Phone Number:</strong> <span th:text="*{phoneNumber}">Phone</span></p>
-            <p><strong>Address:</strong> <span th:text="*{address}">Address</span></p>
-            <p><strong>Gender:</strong> <span th:text="*{gender}">Gender</span></p>
-            <p><strong>Date of Birth:</strong> <span th:text="*{dateOfBirth}">DOB</span></p>
-            <p><strong>Role:</strong> <span th:text="*{role}">Role</span></p>
-          
+<style>
+    .profile-wrapper {
+        max-width: 1000px;
+        margin: 60px auto 40px;
+        padding: 30px;
+        background-color: #fff;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        border-radius: 12px;
+    }
+    .profile-header {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .profile-details {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        row-gap: 15px;
+        column-gap: 40px;
+        font-size: 1.8rem;
+    }
+    .profile-details div {
+        display: flex;
+        align-items: center;
+    }
+    .edit-btn {
+        margin-top: 30px;
+    }
+    .edit-btn button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        background-color: #343a40;
+        color: white;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+    .edit-btn button:hover {
+        background-color: #495057;
+    }
+</style>
 
-<form th:action="@{/profile/edit_profile}" method="post">
-    <button type="submit">Edit</button>
-</form>
+<div class="container">
+    <div class="profile-wrapper" th:object="${account}">
+        <div class="profile-header">
+            <i class="fa fa-user-circle"></i> Your Profile
+        </div>
 
-           
+        <div class="profile-details">
+            <div><strong>First Name:</strong></div> <div th:text="*{firstName}">First Name</div>
+            <div><strong>Last Name:</strong></div> <div th:text="*{lastName}">Last Name</div>
+            <div><strong>Username:</strong></div> <div th:text="*{username}">Username</div>
+            <div><strong>Email:</strong></div> <div th:text="*{email}">Email</div>
+            <div><strong>Phone Number:</strong></div> <div th:text="*{phoneNumber}">Phone</div>
+            <div><strong>Address:</strong></div> <div th:text="*{address}">Address</div>
+            <div><strong>Gender:</strong></div> <div th:text="*{gender}">Gender</div>
+            <div><strong>Date of Birth:</strong></div> <div th:text="*{dateOfBirth}">DOB</div>
+            <div><strong>Role:</strong></div> <div th:text="*{role}">Role</div>
+        </div>
+
+        <div class="edit-btn">
+            <form th:action="@{/profile/edit_profile}" method="post">
+                <button type="submit"><i class="fa fa-edit"></i> Edit Profile</button>
+            </form>
         </div>
     </div>
 </div>

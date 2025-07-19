@@ -2,9 +2,14 @@ package com.anujl.blacknwhite.models;
 
 import java.time.LocalDateTime;
 
+import com.anujl.blacknwhite.util.constants.CategoryType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -19,10 +24,12 @@ import lombok.Setter;
 public class Post {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
+    @Enumerated(EnumType.STRING)
+    private CategoryType category;
 
     @Column(columnDefinition = "TEXT")
     private String content;
@@ -32,6 +39,7 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "account_id")
     private Account account;
+
 
     @Override
     public String toString() {

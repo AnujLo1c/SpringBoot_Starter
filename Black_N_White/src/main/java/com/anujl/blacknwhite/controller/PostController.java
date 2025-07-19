@@ -89,6 +89,8 @@ public class PostController {
       Optional<Post> postOptional = postService.findById(id);
        if(postOptional.isPresent()){
             Post expost = postOptional.get();
+
+            //TODO: handle access logic
             System.out.println(expost);
              expost.setTitle(post.getTitle());
              expost.setContent(post.getContent());

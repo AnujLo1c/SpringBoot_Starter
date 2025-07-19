@@ -1,105 +1,68 @@
 <!DOCTYPE html>
-<html
-  lang="en"
-  xmlns:th="http://www.thymeleaf.org"
-  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
   <head th:replace="~{fragments/head :: head}"></head>
- 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
   <body>
     <header th:replace="~{fragments/header :: header}"></header>
 
-
-
-
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">...</div>
+          <div class="modal-body">This action cannot be undone.</div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-           
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             <form th:action="@{'/post/' + ${post.id} + '/delete'}" method="post">
-  <button type="submit" class="btn btn-danger">Delete</button>
-</form>
+              <button type="submit" class="btn btn-dark">Delete</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
-    <h2 class="text-center mt-5 pt-5">Post Page</h2>
-    <!-- Add more content here as needed -->
 
-    <div class="post">
-        <h3 th:text="${post.id}">ID</h3>
+    <!-- Single Post Content -->
+    <div class="container mt-5 pt-4">
+      <main class="col-md-10 mx-auto">
+        <article class="post post-single">
+          <header class="entry-header mb-3">
+            <h1 class="entry-title" th:text="${post.title}">Post Title</h1>
+            <div class="entry-meta">
+              <span class="post-category" th:text="${post.category}">Category</span> |
+              <span class="post-date" th:text="${#temporals.format(post.createdAt, 'dd MMM yyyy HH:mm')}">Date</span> |
+              <span class="post-author" th:text="${post.account.firstName}">Author</span>
+            </div>
+          </header>
 
-      <h2>
-        <a
-          th:href="@{'/post/' + ${post.id}}"
-          th:text="${post.title}"
-          th:value="${post.title}"
-          >Title</a
-        >
-      </h2>
-      <!--  -->
-      <p
-        th:text="'Author : '+${post.account.firstName}+' | Created At: '+${post.createdAt}"
-      ></p>
-      <p th:text="${post.content}" th:value="${post.content}">
-        Post content goes here.
-      </p>
-      <!-- <input type="hidden" name="postId" th:value="${post.id}"/> -->
-      <!-- <input type="hidden" name="poststring" th:value="${post.toString()}"/> -->
+          <div class="entry-content clearfix mb-4">
+            <p th:text="${post.content}">Post content goes here.</p>
+          </div>
 
-      <button class="btn btn-primary" th:if="${isAuthor}">
-        <a
-          th:href="@{'/post/'+${post.id}+'/edit_post'}"
-          class="text-white"
+        <div class="full-width-buttons mt-3">
+    <form  th:action="@{/post/edit/{id}(id=${post.id})}" method="get">
+        <button type="submit" class="btn">Edit</button>
+    </form>
+    <form th:action="@{/post/delete/{id}(id=${post.id})}" method="post">
+        <input type="hidden" name="_method" value="delete"/>
+        <button type="submit" class="btn">Delete</button>
+    </form>
+</div>
+<br>
+<br>
+
           
-          >Edit</a
-        >
-      </button>
-      <!-- Button trigger modal -->
-     <button
-  type="button"
-  class="btn btn-danger"
-  th:if="${isAuthor}"
-  data-toggle="modal"
-  data-target="#exampleModal"
->
-  Delete
-</button>
-
+        </article>
+      </main>
     </div>
+
     <footer th:replace="~{fragments/footer :: footer}"></footer>
   </body>
 </html>

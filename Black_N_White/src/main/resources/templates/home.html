@@ -6,9 +6,54 @@
     <header th:replace="~{fragments/header :: header}"
  >
     </header>
-    
+    <section class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-8">
+                <article class="post" th:each="post : ${posts}">
+                    <header class="entry-header">
+                        <h1 class="entry-title">
+                            <a th:href="@{'/post/' + ${post.id}}" th:text="${post.title}">Post Title</a>
+                        </h1>
+                        <div class="entry-meta">
+                            <span class="post-category">
+                                <a href="#" th:text="${post.category}">Category</a>
+                            </span>
+                            <span th:text="${#temporals.format(post.createdAt, 'dd MMM yyyy')}"></span>
 
-    <section class="about_section layout_padding">
+                            <span class="post-author">
+                                <a href="#" th:text="${post.account.firstName + ' ' + post.account.lastName}">Author</a>
+                            </span>
+                            <span class="comments-link">
+                                <a href="#">0 Comments</a>
+                            </span>
+                        </div>
+                    </header>
+                    <div class="entry-content clearfix">
+                        <p th:text="${post.content}">Post content goes here.</p>
+                        <div class="read-more cl-effect-14">
+                            <a th:href="@{'/post/' + ${post.id}}" class="more-link">Continue reading <span class="meta-nav">→</span></a>
+                        </div>
+                    </div>
+                </article>
+            </main>
+
+            <aside class="col-md-4">
+                <div class="widget widget-recent-posts">
+                    <h3 class="widget-title">Recent Posts</h3>
+                    <ul>
+                        <li th:each="recent : ${posts}">
+                            <a th:href="@{'/post/' + ${recent.id}}" th:text="${recent.title}">Recent Post Title</a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+
+    <!-- <section class="about_section layout_padding">
 
         <div class="container">
             <div class="posts" th:each="post : ${posts}">
@@ -21,8 +66,9 @@
                     <p th:text="${post.content}">Post content goes here.</p>
                 </div>
             </div>
-    </section>
+    </section> -->
     <!-- Add more content here as needed -->
    <footer th:replace="~{fragments/footer :: footer}"></footer>
-</body>
-</html>
+</body> 
+
+</html> 

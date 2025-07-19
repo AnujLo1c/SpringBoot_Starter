@@ -1,7 +1,7 @@
 package com.anujl.blacknwhite.models;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.List;
@@ -30,8 +30,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)    private Long id;
     private String firstName;
     private String lastName;
     private String password;

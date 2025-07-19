@@ -37,15 +37,18 @@ public class AccountController {
         if (!model.containsAttribute("account")) {
             model.addAttribute("account", new Account());
         }
-        return "register";
-    }
+        return "register"; 
+
+    } 
 
     @PostMapping("/register")
     public String formSubmission(@Valid @ModelAttribute("account") Account account,
             BindingResult bindingResult,
             RedirectAttributes redirectAttributes) {
-
-        if (bindingResult.hasErrors()) {
+System.out.println("pirng");
+if (bindingResult.hasErrors()) {
+            System.out.println("pirngasfwe");
+            System.out.println(bindingResult.toString());
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.account", bindingResult);
             redirectAttributes.addFlashAttribute("account", account);
             return "redirect:/register";
@@ -54,7 +57,7 @@ public class AccountController {
         account.setRole(Roles.USER.getRole());
         accountService.saveAccount(account);
         redirectAttributes.addFlashAttribute("success", "Registration successful. Please login.");
-        return "redirect:/register";
+        return "redirect:/login";
     }
 
     @GetMapping("/login")

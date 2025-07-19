@@ -14,6 +14,7 @@ import com.anujl.blacknwhite.models.Post;
 import com.anujl.blacknwhite.service.AccountService;
 import com.anujl.blacknwhite.service.AuthorityService;
 import com.anujl.blacknwhite.service.PostService;
+import com.anujl.blacknwhite.util.constants.CategoryType;
 import com.anujl.blacknwhite.util.constants.Privilages;
 import com.anujl.blacknwhite.util.constants.Roles;
 
@@ -84,21 +85,94 @@ for(Privilages auth:Privilages.values()){
             post1.setTitle("First Post");
             post1.setContent("This is the content of the first post.");
             post1.setAccount(account);
-
+post1.setCategory(CategoryType.LIFESTYLE);
             
             postService.savePost(post1);
             
             
             Post post2 = new Post();
-            post2.setTitle("Second Post");
-            post2.setContent("This is the content of the second post.");
+            post2.setTitle("Second Post asdf aefe waefawfedafsfafeaa ga g       weasgewgasfgsfsefewa");
+            post2.setContent("This is the content of the second post. Marble Collector\r\n" + //
+                                "There are a total of \r\n" + //
+                                "M\r\n" + //
+                                "M possible types of marbles that you want to collect. They are numbered \r\n" + //
+                                "1\r\n" + //
+                                ",\r\n" + //
+                                "2\r\n" + //
+                                ",\r\n" + //
+                                "…\r\n" + //
+                                ",\r\n" + //
+                                "M\r\n" + //
+                                "1,2,…,M.\r\n" + //
+                                "\r\n" + //
+                                "You currently have \r\n" + //
+                                "N\r\n" + //
+                                "N marbles with you, with types \r\n" + //
+                                "A\r\n" + //
+                                "1\r\n" + //
+                                ",\r\n" + //
+                                "A\r\n" + //
+                                "2\r\n" + //
+                                ",\r\n" + //
+                                "…\r\n" + //
+                                ",\r\n" + //
+                                "A\r\n" + //
+                                "N\r\n" + //
+                                "A \r\n" + //
+                                "1\r\n" + //
+                                "​\r\n" + //
+                                " ,A \r\n" + //
+                                "2\r\n" + //
+                                "​\r\n" + //
+                                " ,…,A \r\n" + //
+                                "N\r\n" + //
+                                "​\r\n" + //
+                                " . Note that you may have the same type of marble twice or more.\r\n" + //
+                                "\r\n" + //
+                                "Find number of types of marbles that you still have not collected.\r\n" + //
+                                "\r\n" + //
+                                "Input Format\r\n" + //
+                                "The first line of input will contain a single integer \r\n" + //
+                                "T\r\n" + //
+                                "T, denoting the number of test cases.\r\n" + //
+                                "Each test case consists of multiple lines of input.\r\n" + //
+                                "The first line of each test case contains \r\n" + //
+                                "N\r\n" + //
+                                "N and \r\n" + //
+                                "M\r\n" + //
+                                "M - the number of marbles you have, and the total possible types of marbles.\r\n" + //
+                                "The second line contains \r\n" + //
+                                "N\r\n" + //
+                                "N integers - \r\n" + //
+                                "A\r\n" + //
+                                "1\r\n" + //
+                                ",\r\n" + //
+                                "A\r\n" + //
+                                "2\r\n" + //
+                                ",\r\n" + //
+                                "…\r\n" + //
+                                ",\r\n" + //
+                                "A\r\n" + //
+                                "N\r\n" + //
+                                "A \r\n" + //
+                                "1\r\n" + //
+                                "​\r\n" + //
+                                " ,A \r\n" + //
+                                "2\r\n" + //
+                                "​\r\n" + //
+                                " ,…,A \r\n" + //
+                                "N\r\n" + //
+                                "​\r\n" + //
+                                " .");
             post2.setAccount(account1);
+            post2.setCategory(CategoryType.LIFESTYLE);
             postService.savePost(post2);
             
             Post post3 = new Post();
             post3.setTitle("Third Post");
             post3.setContent("This is the content of the third post.");
             post3.setAccount(account2);
+            post3.setCategory(CategoryType.TECHNOLOGY);
             postService.savePost(post3);
         }
     }

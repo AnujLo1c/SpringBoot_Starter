@@ -2,22 +2,44 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Confirm password</title>
+    <title>Confirm Password</title>
 </head>
-<head th:replace="~{fragments/head:: head}"></head>
-<body>
-      <div th:replace="~{fragments/header :: header}" ></div>
-      <p th:if="${error}" th:text="${error}" style="color: red;"></p>
-    <h2>Confirm Your password</h2>
-    <form th:action="@{/new-password}" method="post">
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-<input type="hidden" name="param" id="param" th:value="${token}">
-        <label for="confirmPassword">Confirm password:</label><br>
-        <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+<head th:replace="~{fragments/head::head}"></head>
+<body style="margin: 0; padding: 0;">
 
-        <button type="submit">Submit</button>
-    </form>
-     <footer th:replace="~{fragments/footer :: footer}"></footer>
+  <div th:replace="~{fragments/header :: header}"></div>
+
+  <div style="min-height: 75vh; display: flex; align-items: center; justify-content: center;">
+    <div style="width: 100%; max-width: 450px; padding: 20px;">
+
+      <p th:if="${error}" th:text="${error}" style="color: red; font-size: 1.2rem; text-align: center;"></p>
+
+      <h1 style="font-size: 3.5rem;font-weight: 400; text-align: center; margin-bottom: 30px;">Confirm Password</h1>
+
+      <form th:action="@{/new-password}" method="post">
+        <div class="mb-3" style="margin-bottom: 20px;">
+          <label for="password" style="font-size: 1.8rem; display: block; margin-bottom: 8px;">Password</label>
+          <input type="password" id="password" name="password" required
+                 style="width: 100%; font-size: 1.7rem; height: 50px; padding: 10px; box-sizing: border-box;">
+        </div>
+
+        <input type="hidden" name="param" id="param" th:value="${token}">
+
+        <div class="mb-3" style="margin-bottom: 30px;">
+          <label for="confirmPassword" style="font-size: 1.8rem; display: block; margin-bottom: 8px;">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" required
+                 style="width: 100%; font-size: 1.7rem; height: 50px; padding: 10px; box-sizing: border-box;">
+        </div>
+
+        <button type="submit"
+                style="width: 100%; height: 50px; background-color: #000; color: #fff; font-size: 1.7rem; font-weight: bold; border: none; cursor: pointer;">
+          Submit
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <footer th:replace="~{fragments/footer :: footer}"></footer>
 </body>
 </html>
