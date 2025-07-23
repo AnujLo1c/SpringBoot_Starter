@@ -1,11 +1,22 @@
-INSERT INTO patient (name, gender, birth_date, email, blood_group, created_at) VALUES
-('Anuj Lowanshi', 'MALE', '2000-01-15', 'anuj1@example.com', 'A_POSITIVE', NOW()),
-('Nandini Dhote', 'FEMALE', '1999-06-12', 'nandini@example.com', 'B_NEGATIVE', NOW()),
-('Shivam Gurjar', 'MALE', '1998-03-22', 'shivam@example.com', 'O_POSITIVE', NOW()),
-('Shreya Baraskar', 'FEMALE', '2001-09-30', 'shreya@example.com', 'AB_POSITIVE', NOW()),
-('Rahul Mehta', 'MALE', '1997-12-05', 'rahul@example.com', 'B_POSITIVE', NOW()),
-('Priya Singh', 'FEMALE', '2002-07-18', 'priya@example.com', 'O_NEGATIVE', NOW()),
-('Vikram Rathore', 'MALE', '1996-04-09', 'vikram@example.com', 'A_NEGATIVE', NOW()),
-('Simran Kaur', 'FEMALE', '2000-10-28', 'simran@example.com', 'AB_NEGATIVE', NOW()),
-('Ravi Sharma', 'MALE', '1995-08-02', 'ravi@example.com', 'A_POSITIVE', NOW()),
-('Pooja Verma', 'FEMALE', '1999-11-16', 'pooja@example.com', 'B_POSITIVE', NOW());
+INSERT INTO patient (name, gender, birth_date, email, blood_group)
+VALUES
+    ('Aarav Sharma', 'MALE', '1990-05-10', 'aarav.sharma@example.com', 'O_POSITIVE'),
+    ('Diya Patel', 'FEMALE', '1995-08-20', 'diya.patel@example.com', 'A_POSITIVE'),
+    ('Dishant Verma', 'MALE', '1988-03-15', 'dishant.verma@example.com', 'A_POSITIVE'),
+    ('Neha Iyer', 'FEMALE', '1992-12-01', 'neha.iyer@example.com', 'AB_POSITIVE'),
+    ('Kabir Singh', 'MALE', '1993-07-11', 'kabir.singh@example.com', 'O_POSITIVE');
+
+INSERT INTO doctor (name, specialization, email)
+VALUES
+    ('Dr. Rakesh Mehta', 'Cardiology', 'rakesh.mehta@example.com'),
+    ('Dr. Sneha Kapoor', 'Dermatology', 'sneha.kapoor@example.com'),
+    ('Dr. Arjun Nair', 'Orthopedics', 'arjun.nair@example.com');
+
+INSERT INTO appointment (appointment_time, reason, doctor_id, patient_id)
+VALUES
+  ('2025-07-01 10:30:00', 'General Checkup', 1, 2),
+  ('2025-07-02 11:00:00', 'Skin Rash', 2, 2),
+  ('2025-07-03 09:45:00', 'Knee Pain', 3, 3),
+  ('2025-07-04 14:00:00', 'Follow-up Visit', 1, 1),
+  ('2025-07-05 16:15:00', 'Consultation', 1, 4),
+  ('2025-07-06 08:30:00', 'Allergy Treatment', 2, 5);

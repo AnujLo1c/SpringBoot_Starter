@@ -32,15 +32,15 @@ public class Doctor {
     private long id;
 
     private String name;
+
     private String specialization;
     private String email;
-
     @CreationTimestamp
     private LocalDateTime createdAt;
     
 
      @OneToMany(mappedBy = "doctor")
-    private List<Appointment> Appointment=new ArrayList<>();
+    private List<Appointment> appointment=new ArrayList<>();
 
     @ManyToMany(mappedBy = "doctors")
     private Set<Department> set=new HashSet<>();

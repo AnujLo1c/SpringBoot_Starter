@@ -1,13 +1,9 @@
 package com.anujl.hospitalManagement.entity;
 
 import java.time.LocalDateTime;
-import jakarta.persistence.Entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+
 import lombok.*;
 import org.hibernate.annotations.NotFound;
 
@@ -27,14 +23,14 @@ public class Appointment {
 
     private String status;
 
-    private LocalDateTime appointmenDateTime;
+    private LocalDateTime appointmentTime;
 
     @ManyToOne
     @JoinColumn
     @NonNull
     private Patient patient;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
     @NonNull
     private Doctor doctor;
